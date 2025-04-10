@@ -1,4 +1,4 @@
-package com.example.workout_tracker;
+package com.project.workout_tracker;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
