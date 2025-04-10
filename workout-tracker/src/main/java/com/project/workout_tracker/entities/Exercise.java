@@ -1,0 +1,41 @@
+package com.project.workout_tracker.entities;
+
+import com.project.workout_tracker.support.enums.Category;
+import com.project.workout_tracker.support.enums.MuscleGroup;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import java.util.HashSet;
+import java.util.Set;
+
+
+@Getter
+@Setter
+@Entity(name = "Exercise")
+@Table(name="exercises")
+public class Exercise {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+
+    @Column(name = "name")
+    private String name;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "category")
+    private Category category;
+
+    @ElementCollection(targetClass = MuscleGroup.class)
+    @Enumerated(EnumType.STRING)
+    @CollectionTable(name = "exercise_muscle_groups")
+    @Column(name = "muscle_group")
+    private Set<MuscleGroup> muscleGroups = new HashSet<>();
+
+
+}
