@@ -5,8 +5,6 @@ import com.project.workout_tracker.support.enums.MuscleGroup;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -27,6 +25,9 @@ public class Exercise {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "description")
+    private String description;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "category")
     private Category category;
@@ -36,6 +37,11 @@ public class Exercise {
     @CollectionTable(name = "exercise_muscle_groups")
     @Column(name = "muscle_group")
     private Set<MuscleGroup> muscleGroups = new HashSet<>();
+
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "workout_plan_id")
+    private WorkoutPlan workoutPlan;
 
 
 }
