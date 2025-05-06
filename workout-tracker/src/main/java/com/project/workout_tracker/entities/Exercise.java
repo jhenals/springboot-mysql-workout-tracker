@@ -22,7 +22,7 @@ public class Exercise {
     private Long id;
 
 
-    @Column(name = "name")
+    @Column(name = "name", unique = true)
     private String name;
 
     @Column(name = "description")
@@ -32,9 +32,7 @@ public class Exercise {
     @Column(name = "category")
     private Category category;
 
-    @ElementCollection(targetClass = MuscleGroup.class)
     @Enumerated(EnumType.STRING)
-    @CollectionTable(name = "exercise_muscle_groups")
     @Column(name = "muscle_group")
     private Set<MuscleGroup> muscleGroups = new HashSet<>();
 
@@ -42,6 +40,4 @@ public class Exercise {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "workout_plan_id")
     private WorkoutPlan workoutPlan;
-
-
 }
