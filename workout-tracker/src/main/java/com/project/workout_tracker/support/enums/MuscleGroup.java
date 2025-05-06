@@ -11,7 +11,9 @@ public enum MuscleGroup {
     CORE("core"),
     SHOULDERS("shoulders"),
     FULL_BODY("full_body"),
-    GLUTES("glutes");
+    GLUTES("glutes"),
+    TRICEPS("triceps");
+
 
     private final String musclegroup;
 
