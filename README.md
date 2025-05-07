@@ -1,4 +1,4 @@
 # WorkoutTracker
 https://roadmap.sh/projects/fitness-workout-tracker
 
-App to let users track their workouts and progress.
+API for a workout tracker application that allows users to manage their workouts and track their progress
