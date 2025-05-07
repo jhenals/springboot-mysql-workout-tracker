@@ -1,5 +1,7 @@
 package com.project.workout_tracker.dto;
 
+import com.project.workout_tracker.entities.WorkoutExercise;
+import com.project.workout_tracker.support.enums.Status;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -10,6 +12,6 @@ public class WorkoutPlanRequestDTO {
     private String name;
     private LocalDateTime scheduledAt;
     private String comments;
-    private List<WorkoutExerciseDTO> exercises;
-
+    private Status status;
+    private List<WorkoutExerciseRequestDTO> workoutExerciseDTOList;
 }
