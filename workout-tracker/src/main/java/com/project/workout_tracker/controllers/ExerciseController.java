@@ -14,6 +14,7 @@ public class ExerciseController {
 
     @Autowired
     private ExerciseService exerciseService;
+
     @GetMapping
     public ResponseEntity<?> getAllExercises(){
         try{

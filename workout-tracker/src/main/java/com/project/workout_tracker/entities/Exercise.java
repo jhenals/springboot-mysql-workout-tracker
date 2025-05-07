@@ -21,7 +21,6 @@ public class Exercise {
     @Column(name = "id", nullable = false)
     private Long id;
 
-
     @Column(name = "name", unique = true)
     private String name;
 
@@ -36,8 +35,4 @@ public class Exercise {
     @Column(name = "muscle_group")
     private Set<MuscleGroup> muscleGroups = new HashSet<>();
 
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "workout_plan_id")
-    private WorkoutPlan workoutPlan;
 }

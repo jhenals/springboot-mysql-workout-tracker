@@ -1,5 +1,6 @@
 package com.project.workout_tracker.entities;
 
+import com.project.workout_tracker.dto.WorkoutPlanResponseDTO;
 import com.project.workout_tracker.support.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -20,7 +21,7 @@ public class WorkoutPlan {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "user")
+    @JoinColumn(name = "user_id")
     private User user;
 
     @Column(name = "name")
@@ -29,16 +30,17 @@ public class WorkoutPlan {
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "workoutPlan", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "workoutPlan" , cascade = CascadeType.ALL, orphanRemoval = true)
     private List<WorkoutExercise> exerciseList= new ArrayList<>();
 
+    @Column(name = "scheduled_at")
     private LocalDateTime scheduledAt;
 
     @Column(name = "status")
     private Status status;
 
-    @Column(name = "comment")
-    private String comment;
+    @Column(name = "comments")
+    private String comments;
 
 
 }

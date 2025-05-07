@@ -31,7 +31,8 @@ public class ExerciseSeeder implements ApplicationRunner {
     }
 
     private void seedExercise(){
-        List<Exercise> exerciseList = new ArrayList<>();
+        //List<Exercise> exerciseList = new ArrayList<>();
+        int counter=0;
 
         Exercise squat = new Exercise();
         squat.setName("Squat");
@@ -54,15 +55,12 @@ public class ExerciseSeeder implements ApplicationRunner {
         List<Exercise> newExercises= List.of(squat, pushUp, running);
         for( Exercise ex: newExercises){
             if(!exerciseRepository.existsByName(ex.getName())){
-                exerciseList.add(ex);
+                //exerciseList.add(ex);
+                exerciseRepository.save(ex);
+                counter++;
             }
         }
-        if(!exerciseList.isEmpty()){
-            exerciseRepository.saveAll(List.of(squat, pushUp, running));
-            log.info("Seeded {} exercises into the database", 3);
-        }else{
-            log.info("All  exercisesalready exist. No seeding needed.");
-        }
+        log.info("Seeded {} exercises into the database", counter);
     }
 
 }

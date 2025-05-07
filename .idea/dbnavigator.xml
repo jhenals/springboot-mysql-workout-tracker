@@ -46,16 +46,24 @@ INSERT INTO exercises (name, description, category) VALUES
   ('Squats', 'Lower body strength exercise', 'Strength'),
   ('Running', 'Cardio exercise', 'Cardio');
 
-SELECT * FROM workouttrackerdb.exercises;]]></console>
+SELECT * FROM workouttrackerdb.exercises;
+
+select
+    we.`exercise_id`,
+    we.`id`,
+    we.`repetitions`,
+    we.`sets`,
+    we.`weight`,
+    we.`workout_plan_id`
+from
+    `workout_exercise` we;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="709c51ea-7493-422b-a5ed-96aad57a7af4" object-ref="consoles/local-instance" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="709c51ea-7493-422b-a5ed-96aad57a7af4" />
@@ -63,6 +71,11 @@ SELECT * FROM workouttrackerdb.exercises;]]></console>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="709c51ea-7493-422b-a5ed-96aad57a7af4" dataset="workouttrackerdb.user" active-filter-id="" />
     <filter-actions connection-id="709c51ea-7493-422b-a5ed-96aad57a7af4" dataset="workouttrackerdb.exercises" active-filter-id="" />
+    <filter-actions connection-id="709c51ea-7493-422b-a5ed-96aad57a7af4" dataset="workouttrackerdb.workout_exercise" active-filter-id="459177da-ba58-43a9-9329-f9224657df60">
+      <filter id="459177da-ba58-43a9-9329-f9224657df60" name="Filter" temporary="false" custom-name="false" type="basic" join-type="AND">
+        <condition column="id" operator="=" value="" active="true" />
+      </filter>
+    </filter-actions>
   </component>
   <component name="DBNavigator.Project.ExecutionManager">
     <retain-sticky-names value="false" />
